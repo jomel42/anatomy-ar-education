@@ -14,12 +14,12 @@ The application recognizes anatomy cards through the device camera and displays 
 
 ##  Features
 
-- 📷 Image recognition using ARCore
-- 🫀 Interactive 3D anatomy visualization
-- 🔊 Educational audio for each anatomical structure
-- 📚 Learning mode with anatomy cards
-- 📱 Android application developed with Kotlin
-- ⚡ Optimized loading of 3D models
+- Image recognition using ARCore
+- Interactive 3D anatomy visualization
+- Educational audio for each anatomical structure
+- Learning mode with anatomy cards
+- Android application developed with Kotlin
+- Optimized loading of 3D models
 
 ---
 
