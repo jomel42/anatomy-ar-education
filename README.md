@@ -4,7 +4,7 @@ An educational Android application developed with **Kotlin** and **ARCore** that
 
 ---
 
-## 📖 Overview
+##  Overview
 
 Anatomy AR App is an educational mobile application designed to improve anatomy learning by combining Augmented Reality and 3D visualization.
 
@@ -12,7 +12,7 @@ The application recognizes anatomy cards through the device camera and displays 
 
 ---
 
-## ✨ Features
+##  Features
 
 - 📷 Image recognition using ARCore
 - 🫀 Interactive 3D anatomy visualization
@@ -23,7 +23,7 @@ The application recognizes anatomy cards through the device camera and displays 
 
 ---
 
-## 🛠 Technologies
+## Technologies
 
 - Kotlin
 - Android Studio
@@ -34,7 +34,7 @@ The application recognizes anatomy cards through the device camera and displays 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Anatomy-AR-App
@@ -51,7 +51,7 @@ Anatomy-AR-App
 
 ---
 
-## 📷 Screenshots
+##  Screenshots
 
 > Screenshots will be added soon.
 
@@ -63,7 +63,7 @@ Anatomy-AR-App
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 1. Clone the repository
 
@@ -79,7 +79,7 @@ git clone https://github.com/jomel42/anatomy-ar-app.git
 
 ---
 
-## 🎯 Educational Objectives
+##  Educational Objectives
 
 The project was developed to:
 
@@ -90,7 +90,7 @@ The project was developed to:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Jomel Darío Siñani Orellana**
 
@@ -98,10 +98,10 @@ Full Stack Developer
 
 Systems Engineering Student
 
-📍 São Paulo, Brazil
+São Paulo, Brazil
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
