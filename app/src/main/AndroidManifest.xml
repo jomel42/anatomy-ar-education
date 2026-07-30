@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- AR opcional durante desarrollo (puedes poner required=true al publicar) -->
+    <uses-feature android:name="android.hardware.camera.ar" android:required="false" />
+    <!-- OpenGL ES 3.0 -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+    <!-- Cámara y autofocus (recomendado) -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+            android:allowBackup="true"
+            android:label="AR EduScan Kids"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+
+        <!-- ARCore opcional en dev -->
+        <meta-data
+                android:name="com.google.ar.core"
+                android:value="optional" />
+
+        <activity
+                android:name=".MainActivity"
+                android:exported="true"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>

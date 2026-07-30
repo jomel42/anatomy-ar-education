@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:id="@+id/root"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <!-- Contenedor del fragmento AR (Explorar o Cartas) -->
+    <FrameLayout
+            android:id="@+id/arFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <!-- Mensajes / estado (arriba-izquierda) -->
+    <TextView
+            android:id="@+id/txtCaso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menú ▶ elige categoría o juego"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:background="#66000000"
+            android:layout_gravity="top|start"
+            android:layout_margin="12dp" />
+
+    <!-- Botón de menú (arriba-derecha) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Menú"
+            app:useCompatPadding="true"
+            app:srcCompat="@android:drawable/ic_menu_more"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp" />
+
+</FrameLayout>
