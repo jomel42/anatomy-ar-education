@@ -1,107 +1,47 @@
-# 🫀 Anatomy AR App
+## 📷 Application Screenshots
 
-An educational Android application developed with **Kotlin** and **ARCore** that allows students to learn human anatomy through interactive 3D models using Augmented Reality.
+### Main Menu
 
----
+The application's main menu allows users to select bones, organs, muscles, and the educational card game.
 
-##  Overview
-
-Anatomy AR App is an educational mobile application designed to improve anatomy learning by combining Augmented Reality and 3D visualization.
-
-The application recognizes anatomy cards through the device camera and displays interactive 3D models of organs, bones and muscles, accompanied by educational audio to provide a more immersive learning experience.
+![Main Menu](01-main-menu.jpeg)
 
 ---
 
-##  Features
+###Head 3D Model
 
-- Image recognition using ARCore
-- Interactive 3D anatomy visualization
-- Educational audio for each anatomical structure
-- Learning mode with anatomy cards
-- Android application developed with Kotlin
-- Optimized loading of 3D models
+Interactive 3D head model displayed through Augmented Reality after recognizing an anatomy card.
+
+![Head Model](02-head-model.jpeg)
 
 ---
 
-## Technologies
+### Head Anatomy
 
-- Kotlin
-- Android Studio
-- ARCore
-- Sceneform
-- OpenGL ES
-- Gradle
+Detailed visualization of the muscles, arteries, and structures of the human head.
+
+![Head Anatomy](03-head-anatomy.jpeg)
 
 ---
 
-##  Project Structure
+### Skull Anatomy
 
-```
-Anatomy-AR-App
-│
-├── app/
-├── gradle/
-├── assets/
-├── res/
-├── AndroidManifest.xml
-├── build.gradle
-├── settings.gradle
-└── README.md
-```
+Interactive skull model with anatomical labels for educational purposes.
+
+![Skull Anatomy](04-skull-anatomy.jpeg)
 
 ---
 
-##  Screenshots
+###Vertebral Column
 
-> Screenshots will be added soon.
+Interactive vertebral column showing cervical, thoracic, lumbar, sacral, and coccygeal regions.
 
-- Home Screen
-- Card Recognition
-- 3D Heart Model
-- Human Skeleton
-- Anatomy Cards
+![Vertebral Column](05-spine-anatomy.jpeg)
 
 ---
 
-##  Installation
+###Human Skeleton
 
-1. Clone the repository
+Complete 3D human skeleton with labels identifying the main bones.
 
-```bash
-git clone https://github.com/jomel42/anatomy-ar-app.git
-```
-
-2. Open the project in Android Studio.
-
-3. Sync Gradle.
-
-4. Run the application on an Android device compatible with ARCore.
-
----
-
-##  Educational Objectives
-
-The project was developed to:
-
-- Improve anatomy learning.
-- Encourage interactive education.
-- Visualize anatomical structures in 3D.
-- Demonstrate the use of Augmented Reality in education.
-
----
-
-##  Author
-
-**Jomel Darío Siñani Orellana**
-
-Full Stack Developer
-
-Systems Engineering Student
-
-São Paulo, Brazil
-
----
-
-##  License
-
-This project is licensed under the MIT License.
+![Human Skeleton](06-full-skeleton.jpeg)
