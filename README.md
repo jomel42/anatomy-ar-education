@@ -1,39 +1,58 @@
+<div align="center">
+
 # 🫀 Anatomy AR App
 
-> Educational Android application that uses **Augmented Reality (ARCore)** to teach human anatomy through interactive 3D models.
+### Educational Android Application using Augmented Reality (ARCore)
+
+Educational application developed in **Kotlin** that allows students to learn human anatomy through interactive **3D models** using **Google ARCore**.
 
 ![Android](https://img.shields.io/badge/Android-8.0+-green)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9-purple)
 ![ARCore](https://img.shields.io/badge/ARCore-Google-blue)
 ![Sceneform](https://img.shields.io/badge/Sceneform-3D-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+![MIT License](https://img.shields.io/badge/License-MIT-yellow)
+
+</div>
 
 ---
 
 # Overview
 
-Anatomy AR App is an educational mobile application developed in **Kotlin** using **Google ARCore**.
+Anatomy AR App is an educational Android application designed to improve anatomy learning through **Augmented Reality**.
 
-The application allows students to visualize the human body in Augmented Reality, helping them understand anatomy through interactive 3D models.
+The application recognizes anatomy cards using the device camera and displays interactive 3D models of bones, organs and muscles.
 
-Users can explore bones, organs and muscles while learning the names and positions of each anatomical structure.
-
-The project was developed as an academic project focused on combining education and emerging technologies.
+It also includes educational audio and multiple anatomy modules to provide a more immersive learning experience.
 
 ---
 
 # Features
 
-- Interactive 3D visualization using Augmented Reality
-- Anatomy card recognition
-- Human skeleton visualization
-- Skull anatomy visualization
-- Human head anatomy visualization
-- Vertebral column visualization
-- Educational card game
-- Educational audio playback
 - Android application developed with Kotlin
-- Optimized loading of 3D models
+- Interactive 3D human anatomy visualization
+- Image recognition using Google ARCore
+- Human head anatomy
+- Skull visualization
+- Full human skeleton
+- Vertebral column
+- Educational card game
+- Educational audio
+- Optimized 3D model loading
+
+---
+
+# Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| Kotlin | Android Development |
+| Android Studio | IDE |
+| Google ARCore | Augmented Reality |
+| Sceneform | 3D Rendering |
+| OpenGL ES | Graphics Rendering |
+| Android SDK | Mobile Platform |
+| XML | User Interface |
+| Gradle | Build System |
 
 ---
 
@@ -41,77 +60,76 @@ The project was developed as an academic project focused on combining education 
 
 ## Main Menu
 
-Users can select different educational modules such as Bones, Organs, Muscles and the Educational Card Game.
+Educational menu used to access all anatomy modules.
 
-![](screenshots/01-main-menu.jpeg)
+<p align="center">
+<img src="screenshots/01-main-menu.jpeg" width="350">
+</p>
 
 ---
 
 ## Head 3D Model
 
-Interactive 3D head model generated after recognizing an anatomy card.
+Interactive head model generated using Augmented Reality.
 
-![](screenshots/02-head-model.jpeg)
+<p align="center">
+<img src="screenshots/02-head-model.jpeg" width="350">
+</p>
 
 ---
 
 ## Head Anatomy
 
-Detailed visualization of muscles, arteries and facial structures.
+Visualization of muscles, arteries and facial anatomy.
 
-![](screenshots/03-head-anatomy.jpeg)
+<p align="center">
+<img src="screenshots/03-head-anatomy.jpeg" width="350">
+</p>
 
 ---
 
 ## Skull Anatomy
 
-Interactive skull model with educational labels.
+Interactive skull with anatomical labels.
 
-![](screenshots/04-skull-anatomy.jpeg)
+<p align="center">
+<img src="screenshots/04-skull-anatomy.jpeg" width="350">
+</p>
 
 ---
 
 ## Vertebral Column
 
-Interactive vertebral column showing cervical, thoracic, lumbar, sacral and coccygeal regions.
+Detailed visualization of the vertebral column.
 
-![](screenshots/05-spine-anatomy.jpeg)
+<p align="center">
+<img src="screenshots/05-spine-anatomy.jpeg" width="350">
+</p>
 
 ---
 
 ## Human Skeleton
 
-Complete 3D human skeleton with anatomical labels.
+Complete human skeleton in Augmented Reality.
 
-![](screenshots/06-full-skeleton.jpeg)
-
----
-
-# Technologies
-
-- Kotlin
-- Android Studio
-- Google ARCore
-- Sceneform
-- OpenGL ES
-- Gradle
-- XML
-- Android SDK
+<p align="center">
+<img src="screenshots/06-full-skeleton.jpeg" width="350">
+</p>
 
 ---
 
-#  Architecture
+# Project Architecture
 
 ```
 Android Application
 │
-├── User Interface
 ├── Camera
-├── ARCore
+├── ARCore Engine
 ├── Image Recognition
 ├── 3D Model Loader
-├── Audio Player
-└── Educational Modules
+├── Audio System
+├── Educational Modules
+└── User Interface
 ```
 
 ---
@@ -134,17 +152,17 @@ Anatomy-AR-App
 
 # Installation
 
-Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/jomel42/anatomy-ar-education.git
 ```
 
-Open the project using Android Studio.
+Open the project with Android Studio.
 
-Sync Gradle.
+Sync Gradle dependencies.
 
-Connect an Android device compatible with ARCore.
+Connect an Android device compatible with Google ARCore.
 
 Run the application.
 
@@ -152,33 +170,26 @@ Run the application.
 
 # Educational Modules
 
-✔ Bones
-
-✔ Organs
-
-✔ Muscles
-
-✔ Human Skeleton
-
-✔ Skull
-
-✔ Head
-
-✔ Vertebral Column
-
-✔ Educational Card Game
+- Bones
+- Muscles
+- Organs
+- Human Skeleton
+- Skull
+- Vertebral Column
+- Head Anatomy
+- Educational Card Game
 
 ---
 
 # Future Improvements
 
-- More anatomical structures
-- Multiple language support
-- Interactive quizzes
-- Voice recognition
-- Educational progress tracking
+- More anatomy models
+- Quiz mode
+- User progress system
 - Cloud synchronization
-- Performance optimization
+- Voice narration
+- Multi-language support
+- Better graphics optimization
 
 ---
 
@@ -190,7 +201,7 @@ Full Stack Developer
 
 Systems Engineering Student
 
-São Paulo, Brazil
+📍 São Paulo, Brazil
 
 GitHub:
 
@@ -200,21 +211,12 @@ https://github.com/jomel42
 
 # License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
-# Support
+<div align="center">
 
-If you like this project, consider giving it a ⭐ on GitHub.
-## 📊 Project Information
+### ⭐ If you like this project, don't forget to leave a Star ⭐
 
-| Category | Information |
-|----------|-------------|
-| Language | Kotlin |
-| Platform | Android |
-| IDE | Android Studio |
-| 3D Engine | Sceneform |
-| AR Framework | Google ARCore |
-| Project Type | Educational |
-| Year | 2025 |
+</div>
