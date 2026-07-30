@@ -34,30 +34,23 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
     private lateinit var txtCaso: TextView
     private lateinit var fabMenu: FloatingActionButton
 
-    // ---- Estado / modos ----
     private enum class Modo { EXPLORAR, JUEGO }
-    // Hacerlo nullable para forzar el primer cambiarModo():
     private var modoActual: Modo? = null
 
-    // ---- Fragments ----
     private var fragExplorar: ExploradorArFragment? = null
     private var fragCartas: LectorDeImagenesFragment? = null
 
-    // ---- Explorar (un solo escaneo) ----
     private var anchorNodeFijo: AnchorNode? = null
     private var nodoExplorarActual: TransformableNode? = null
     private var modeloSeleccionado = "corazon"
     private var anchorFijado = false
 
-    // ---- Cartas ----
     private val nodoPorIndex = mutableMapOf<Int, AnchorNode>()
 
-    // ---- Caché de modelos ----
     private val renderableCache = mutableMapOf<String, ModelRenderable>()
     private val loadingGlb = mutableSetOf<String>()
     private var bloqueoCargas = false
 
-    // ---- Modelos (.glb en assets/models/) ----
     private val modelos = mapOf(
         "nervio"                 to "models/nervios.glb",
         "huesos y organos"       to "models/huesoorgano.glb",
@@ -86,7 +79,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         "cerebro parietal"       to "models/craneoparietal.glb"
     )
 
-    // ==== CATEGORÍAS -> claves (para el selector del modo EXPLORAR) ====
     private val categoriaToKeys = mapOf(
         "HUESOS" to listOf("huesos del cuerpo", "costillas", "craneo", "columna", "pie", "cerebro parietal"),
         "ORGANOS" to listOf(
@@ -97,7 +89,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
             "huesos y organos", "nervio", "nervios", "neuro")
     )
 
-    // ---- Audios (solo se usan en EXPLORAR) ----
     private val audioPorModelo = mapOf(
         "corazon"             to R.raw.corazonhuma,
         "craneo"              to R.raw.esqueletohuman,
@@ -125,7 +116,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         "riñon"               to R.raw.rinon
     )
 
-    // ---- Audio Player (solo explorar) ----
     private var mediaPlayer: MediaPlayer? = null
     private fun reproducirAudioModelo(key: String) {
         mediaPlayer?.release()
@@ -142,7 +132,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         super.onDestroy()
     }
 
-    // ===== Ciclo de vida =====
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -152,12 +141,10 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         fabMenu.setOnClickListener { mostrarMenuFlotante(it) }
 
         pedirPermisoCamara {
-            // Forzar primer cambio de modo
             cambiarModo(Modo.JUEGO)
         }
     }
 
-    // ===== Permisos =====
     private fun pedirPermisoCamara(onOk: () -> Unit) {
         val ok = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_GRANTED
@@ -178,7 +165,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
     }
 
 
-    // ===== Menú  =====
     private fun mostrarMenuFlotante(anchorView: View) {
         val popup = PopupMenu(this, anchorView)
         popup.menu.add(0, 1, 0, "Huesos")
@@ -206,16 +192,13 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         mostrarSelectorDeModeloPorCategoria(categoria)
     }
 
-    // ===== Cambiar de modo =====
     private fun cambiarModo(nuevo: Modo) {
         if (modoActual == nuevo && supportFragmentManager.findFragmentById(R.id.arFragmentContainer) != null) {
-            // Ya hay algo cargado en ese modo
             return
         }
         modoActual = nuevo
         when (nuevo) {
             Modo.EXPLORAR -> {
-                // Limpia modo cartas
                 limpiarCartas()
 
                 fragExplorar = ExploradorArFragment()
@@ -234,13 +217,11 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
             Modo.JUEGO -> {
                 txtCaso.text = "Juego: apunta la cámara a una carta (10 cm)."
 
-                // Limpia modo explorar
                 anchorNodeFijo?.let { it.parent?.removeChild(it); it.anchor?.detach() }
                 anchorNodeFijo = null
                 nodoExplorarActual = null
                 anchorFijado = false
 
-                // === TUS CARDS (como en assets/cards/) ===
                 fragCartas = LectorDeImagenesFragment().apply {
                     targets = listOf(
                         LectorDeImagenesFragment.Target("brazo_musculo",          "cards/brazo_musculo.png",           0.10f),
@@ -282,7 +263,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
     }
 
     private fun limpiarCartas() {
-        // Quita nodos anclados por imágenes
         val scene = fragCartas?.arSceneView?.scene ?: return
         nodoPorIndex.values.forEach { node ->
             scene.removeChild(node)
@@ -291,7 +271,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         nodoPorIndex.clear()
     }
 
-    // ===== Listeners de EXPLORAR (un solo escaneo) =====
     private fun setupExplorarListeners() {
         val f = fragExplorar ?: return
         val sceneView = f.arSceneView ?: return
@@ -317,7 +296,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         }
     }
 
-    // ===== Selector por CATEGORÍA (EXPLORAR) =====
     private fun mostrarSelectorDeModeloPorCategoria(categoria: String) {
         val claves = categoriaToKeys[categoria] ?: emptyList()
         val modelosValidos = claves.filter { modelos.containsKey(it) }
@@ -345,7 +323,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
             .show()
     }
 
-    // ===== Punto fijo (Explorar) =====
     private fun placeFixedAnchor(anchor: Anchor) {
         anchorNodeFijo?.let { it.parent?.removeChild(it); it.anchor?.detach() }
         nodoExplorarActual = null
@@ -357,7 +334,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
         modelos[modeloSeleccionado]?.let { ruta ->
             cargarRenderable(ruta) { r -> colocarModeloFijo(anchorNodeFijo!!, r) }
         }
-        // En EXPLORAR sí suena el audio
         reproducirAudioModelo(modeloSeleccionado)
     }
 
@@ -384,12 +360,10 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
             } else {
                 colocarModeloFijo(an, r)
             }
-            // En EXPLORAR sí suena el audio
             reproducirAudioModelo(modeloSeleccionado)
         }
     }
 
-    // ===== Carga con caché =====
     private fun cargarRenderable(glbPath: String, onReady: (ModelRenderable) -> Unit) {
         renderableCache[glbPath]?.let { onReady(it); return }
         if (!loadingGlb.add(glbPath)) return
@@ -416,7 +390,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
             }
     }
 
-    // ====== Mapeo: nombre de card -> key de modelo ======
     private val cardToModelKey = mapOf(
         "brazo_musculo"          to "brazo musculos",
         "cabeza"                 to "cabeza",
@@ -445,7 +418,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
     )
 
 
-    // ===== Modo Cartas: modelo pequeño y pegado a la carta; sin audio =====
     override fun onImageTracking(image: AugmentedImage) {
         if (image.trackingState != TrackingState.TRACKING) return
         if (nodoPorIndex.containsKey(image.index)) return
@@ -468,7 +440,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
                 nodoPorIndex[image.index] = it
             }
 
-            // Nodo intermedio “pegado” a la carta
             val pegado = Node().apply {
                 setParent(anchorNode)
                 localPosition = Vector3(0f, 0.002f, 0f) // 2 mm sobre la carta
@@ -479,7 +450,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
                 setParent(pegado)
                 select()
 
-                // modelo pequeño
                 worldScale = Vector3(0.02f, 0.02f, 0.02f)
                 translationController.isEnabled = false
                 rotationController.isEnabled = true
@@ -488,7 +458,6 @@ class MainActivity : AppCompatActivity(), LectorDeImagenesFragment.OnImageEventL
                 scaleController.maxScale = 0.2f
             }
 
-            // Sin audio en modo cartas
             txtCaso.text = "Carta: $cardName → modelo '$modelKey' colocado sobre la superficie."
         }
     }
