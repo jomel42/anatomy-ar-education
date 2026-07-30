@@ -207,3 +207,14 @@ This project is licensed under the MIT License.
 # Support
 
 If you like this project, consider giving it a ⭐ on GitHub.
+## 📊 Project Information
+
+| Category | Information |
+|----------|-------------|
+| Language | Kotlin |
+| Platform | Android |
+| IDE | Android Studio |
+| 3D Engine | Sceneform |
+| AR Framework | Google ARCore |
+| Project Type | Educational |
+| Year | 2025 |
